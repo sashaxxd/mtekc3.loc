@@ -77,6 +77,7 @@ AppAsset::register($this);
 <div id="mtex_LayoutGrid4">
     <div id="LayoutGrid4">
         <div class="row">
+
             <form method="get" action="<?= \yii\helpers\Url::to(['search/index'])?>" >
             <div class="col-1">
                 <input type="text" id="Editbox1" name="s" value="" placeholder="ПОИСК ПО САЙТУ">
@@ -85,10 +86,20 @@ AppAsset::register($this);
                 <input type="submit" id="Button1" name="" value="Найти">
             </div>
             </form>
+
             <div class="col-3">
                 <div id="mtex_ResponsiveMenu1">
                     <ul class="ResponsiveMenu1" id="ResponsiveMenu1">
-                        <li><a href="<?= \yii\helpers\Url::to(['auth/login'])?>"><i class="fa fa-user fa-2x">&nbsp;</i><br>Вход</a></li>
+                        <?php if(Yii::$app->user->isGuest): ?>
+                        <li><a href="<?= \yii\helpers\Url::to(['auth/login'])?>"><i class="fa fa-user fa-2x">&nbsp;</i><br>
+                                Вход
+                                </a></li>
+                        <?php endif; ?>
+                        <?php if(!Yii::$app->user->isGuest): ?>
+                            <li><a href="<?= \yii\helpers\Url::to(['auth/logout'])?>"><i class="fa fa-user fa-2x">&nbsp;</i><br>
+                                    Выход <?= Yii::$app->user->identity->name ?>
+                                </a></li>
+                        <?php endif; ?>
                         <li><a href="<?= \yii\helpers\Url::to(['auth/signup'])?>"><i class="fa fa-lock fa-2x">&nbsp;</i><br>Регистрация</a></li>
                         <li><a href="<?= \yii\helpers\Url::to(['cart/add'])?>" class="her" data-id="cart"><i class="fa fa-shopping-basket fa-2x">&nbsp;</i><br>Корзина</a></li>
                     </ul>

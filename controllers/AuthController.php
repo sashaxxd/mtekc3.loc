@@ -59,11 +59,13 @@ class AuthController extends AppController
 
     public function actionLogin()
     {
+
         $login_model = new Login();
         if(Yii::$app->request->post('Login')){
             $login_model->attributes = Yii::$app->request->post('Login');
             if ($login_model->validate()) {
               Yii::$app->user->login($login_model->getUser());
+                return $this->goBack();
             }
         }
         return $this->render('login', [
