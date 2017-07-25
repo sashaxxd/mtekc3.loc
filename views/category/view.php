@@ -67,12 +67,6 @@ use yii\helpers\Html;
                                             <a href="<?= \yii\helpers\Url::to(['cart/add', 'id' => $product->id])?>" id="FontAwesomeIcon6" data-id="<?= $product->id?>" class="add-to-cart"><i class="fa fa-shopping-cart"></i></a>
                                         </div>
 
-                                        <!--       Кол-во просмотров                                 -->
-                                        <!--                                        <div id="mtex_FontAwesomeIcon6">-->
-                                        <!--                                            <div id="FontAwesomeIcon6"><i class="fa fa-eye">-->
-                                        <? //= $product->views; ?><!--</i></div>-->
-                                        <!--                                        </div>-->
-
                                     </div>
                                 <?php endforeach; ?>
                         </div>
