@@ -24,17 +24,7 @@ class AuthController extends AppController
         return $this->goHome();
     }
     
-//    public function actionTest(){
-//        $user = User::findOne(1);
-//        Yii::$app->user->logout($user);
-//        if(Yii::$app->user->isGuest){
-//              echo 'Гость';
-//        }
-//        else{
-//            echo 'Авторизирован';
-//        }
-//        return $this->render('test');
-//    }
+
 
      public function actionSignup(){
          if(!Yii::$app->user->isGuest)
