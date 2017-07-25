@@ -38,7 +38,7 @@ class Login  extends Model
     public function validatePassword($attribute, $params)
     {
         $user = $this->getUser();
-        if(!$user || ($user->password != $this->password))
+        if(!$user || ($user->password != sha1($this->password)))
         {
              $this->addError($attribute, 'Пароль или пользователь введены не верно');
         }

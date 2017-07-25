@@ -23,6 +23,7 @@ use yii\widgets\ActiveForm;
         <table class="table table-hover table-striped">
             <thead>
             <tr>
+
                 <th>Фото</th>
                 <th>Наименование</th>
                 <th>Артикул</th>
@@ -58,11 +59,14 @@ use yii\widgets\ActiveForm;
         </table>
     </div>
     <hr/>
+    <?php
+
+    ?>
     <?php $form = ActiveForm::begin() ?>
-        <?= $form->field($order, 'name')?>
-        <?= $form->field($order, 'email')?>
-        <?= $form->field($order, 'phone')?>
-        <?= $form->field($order, 'address')?>
+        <?= $form->field($order, 'name')->textInput(['class' => 'formdisabled', 'disabled' => true])?>
+        <?= $form->field($order, 'email')->textInput(['class' => 'formdisabled', 'disabled' => true])?>
+    <?= $form->field($order, 'phone')->textInput(['class' => 'formdisabled', 'disabled' => true])?>
+        <?= $form->field($order, 'address')->textInput(['class' => 'formdisabled', 'disabled' => true])?>
     <?= Html::submitButton('Заказать', ['class' => 'btn', 'id' => 'Button_cart'])?>
     <?php ActiveForm::end() ?>
 <?php else: ?>

@@ -36,6 +36,8 @@ class Signup extends Model
             [['phone', 'name', 'address', 'email','password'], 'required'],
             [['address'], 'string'],
             [['email'], 'email'],
+            [['email'], 'unique', 'targetClass' => 'app\models\User'],
+            [['password'], 'string', 'min' => 2, 'max' => 10],
             [['name', 'password'], 'string', 'max' => 255],
         ];
     }
@@ -59,7 +61,7 @@ class Signup extends Model
         $user = new User();
         $user->name = $this->name;
         $user->email = $this->email;
-        $user->password = $this->password ;
+        $user->password = sha1($this->password);
         $user->address = $this->address;
         $user->phone = $this->phone;
         $user->save();

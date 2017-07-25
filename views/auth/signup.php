@@ -9,7 +9,7 @@
     <?= $form->field($model, 'email')?>
     <?= $form->field($model, 'phone')?>
     <?= $form->field($model, 'address')?>
-    <?= $form->field($model, 'password')?>
+    <?= $form->field($model, 'password')->passwordInput()?>
     <?= Html::submitButton('Зарегистрироваться', ['class' => 'btn', 'id' => 'Button_cart'])?>
     <?php ActiveForm::end()?>
 </div>

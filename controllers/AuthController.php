@@ -47,7 +47,7 @@ class AuthController extends AppController
 //           Debug($model);die();
              if ($model->validate()) {
                  $model->signup();
-                 return $this->goHome();
+                 return $this->redirect('/auth/login');
              }
          }
 
