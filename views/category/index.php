@@ -4,7 +4,23 @@ use yii\helpers\Html;
 
 
 ?>
+
 <div id="mtex_LayoutGrid8">
+    <?php if (Yii::$app->session->hasFlash('success')): ?>
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <?php echo Yii::$app->session->getFlash('success'); ?>
+        </div>
+    <?php endif; ?>
+
+    <?php if (Yii::$app->session->hasFlash('error')): ?>
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <?php echo Yii::$app->session->getFlash('error'); ?>
+        </div>
+    <?php endif; ?>
     <div id="LayoutGrid8">
         <div class="row">
             <!-- Меню категорий -->
@@ -22,6 +38,7 @@ use yii\helpers\Html;
             </div>
             <!-- Конец меню категорий -->
             <div class="col-2">
+
                 <div id="mtex_LayoutGrid14">
                     <div id="LayoutGrid14">
                         <div class="row">

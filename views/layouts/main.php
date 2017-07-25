@@ -97,7 +97,7 @@ AppAsset::register($this);
                         <?php endif; ?>
                         <?php if(!Yii::$app->user->isGuest): ?>
                             <li><a href="<?= \yii\helpers\Url::to(['auth/logout'])?>"><i class="fa fa-user fa-2x">&nbsp;</i><br>
-                                    Выход <?= Yii::$app->user->identity->email ?>
+                                    Выход
                                 </a></li>
                         <?php endif; ?>
                         <li><a href="<?= \yii\helpers\Url::to(['auth/signup'])?>"><i class="fa fa-lock fa-2x">&nbsp;</i><br>Регистрация</a></li>

@@ -49,9 +49,8 @@ class AuthController extends AppController
 
                  $model->signup();
                  Yii::$app->session->setFlash('success', 'Успешная регистрация');
-                 return $this->redirect(['/auth/login', 'param1'=>'val1' ]);
-////                 Yii::app()->user->setFlash('tipDay','Данные сохранены');
-//                 $this->redirect(array('index','param1'=>'val1'));
+                 return $this->redirect(['/auth/login' ]);
+
              }
          }
 
@@ -69,6 +68,8 @@ class AuthController extends AppController
             $login_model->attributes = Yii::$app->request->post('Login');
             if ($login_model->validate()) {
               Yii::$app->user->login($login_model->getUser());
+                $message = Yii::$app->user->identity->name . " Вы вошли на сайт, можете оформлять заказы";
+                Yii::$app->session->setFlash('success', "$message");
                 return $this->goBack();
             }
         }
