@@ -44,10 +44,14 @@ class AuthController extends AppController
          $model = new Signup();
          if(isset($_POST['Signup'])) {
              $model->attributes = Yii::$app->request->post('Signup');
-//           Debug($model);die();
+
              if ($model->validate()) {
+
                  $model->signup();
-                 return $this->redirect('/auth/login');
+                 Yii::$app->session->setFlash('success', 'Успешная регистрация');
+                 return $this->redirect(['/auth/login', 'param1'=>'val1' ]);
+////                 Yii::app()->user->setFlash('tipDay','Данные сохранены');
+//                 $this->redirect(array('index','param1'=>'val1'));
              }
          }
 

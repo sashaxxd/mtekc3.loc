@@ -32,13 +32,14 @@ class Signup extends Model
     public function rules()
     {
         return [
-            [['phone'], 'integer'],
+
+            ['phone', 'match', 'pattern' => '/^\+7\s\([0-9]{3}\)\s[0-9]{3}\-[0-9]{2}\-[0-9]{2}$/', 'message' => ' Что-то не так' ],
             [['phone', 'name', 'address', 'email','password'], 'required'],
             [['address'], 'string'],
             [['email'], 'email'],
             [['email'], 'unique', 'targetClass' => 'app\models\User'],
             [['password'], 'string', 'min' => 2, 'max' => 10],
-            [['name', 'password'], 'string', 'max' => 255],
+            [['name','password'], 'string', 'max' => 255],
         ];
     }
 
