@@ -36,6 +36,7 @@ class Signup extends Model
             ['phone', 'match', 'pattern' => '/^\+7\s\([0-9]{3}\)\s[0-9]{3}\-[0-9]{2}\-[0-9]{2}$/', 'message' => ' Что-то не так' ],
             [['phone', 'name', 'address', 'email','password'], 'required'],
             [['address'], 'string'],
+            [['name'], 'validateName'],
             [['email'], 'email'],
             [['email'], 'unique', 'targetClass' => 'app\models\User'],
             [['password'], 'string', 'min' => 2, 'max' => 10],
@@ -66,5 +67,14 @@ class Signup extends Model
         $user->address = $this->address;
         $user->phone = $this->phone;
         $user->save();
+    }
+
+    public function validateName($attribute, $params)
+    {
+         $name = Yii::$app->request->post("Signup")['name'];
+        if($name == 'admin')
+        {
+            $this->addError($attribute, 'Не верно!');
+        }
     }
 }

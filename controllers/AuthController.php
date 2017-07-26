@@ -33,6 +33,7 @@ class AuthController extends AppController
          }
          $model = new Signup();
          if(isset($_POST['Signup'])) {
+
              $model->attributes = Yii::$app->request->post('Signup');
 
              if ($model->validate()) {
